@@ -23,12 +23,25 @@ public class Solo {
     private Date data; // atributo referente a data
     private int lote; // atributo referente ao lote
     private int matriculaLote; // atributo referente a matrícula do lote
-
+   
+    private double fosforo; //valor de análise de fósforo no solo
+    private double potassio; //valor de análise de potássio no solo
+    private double calcio; //valor de análise de cálcio no solo
+    private double magnesio; //valor de análise de magnésio no solo
+    private double enxofre; //valor de análise de enxofre no solo
+    private double aluminio; //valor de análise de alumínio no solo
+    private double HAL; //valor de análise de H+AL no solo
+    
+    private CorrecaoFosforo correcaoFosforo;
+    private CorrecaoPotassio correcaoPotassio;
+    private CorrecaoCalcioMagnesio correcaoCalcioMagnesio;
+    
+    
     // métoodos construtores
     public Solo() {
     }
 
-    public Solo(double areaTotal, int talhao, double areaTalhao, int textura, int sistemaCultivo, int profundidade, int numeroResultado, Date data, int lote, int matriculaLote) {
+    public Solo(double areaTotal, int talhao, double areaTalhao, int textura, int sistemaCultivo, int profundidade, int numeroResultado, Date data, int lote, int matriculaLote, double fosforo, double potassio, double calcio, double magnesio, double enxofre, double aluminio, double HAL, CorrecaoFosforo correcaoFosforo, CorrecaoPotassio correcaoPotassio, CorrecaoCalcioMagnesio correcaoCalcioMagnesio  ) {
         this.areaTotal = areaTotal;
         this.talhao = talhao;
         this.areaTalhao = areaTalhao;
@@ -39,6 +52,16 @@ public class Solo {
         this.data = data;
         this.lote = lote;
         this.matriculaLote = matriculaLote;
+        this.fosforo = fosforo;
+        this.potassio = potassio;
+        this.calcio = calcio;
+        this.magnesio = magnesio;
+        this.enxofre = enxofre;
+        this.aluminio = aluminio;
+        this.HAL = HAL;
+        this.correcaoFosforo = correcaoFosforo;
+        this.correcaoPotassio = correcaoPotassio;
+        this.correcaoCalcioMagnesio = correcaoCalcioMagnesio;
     }
     
     // métodos gets
@@ -82,6 +105,34 @@ public class Solo {
     public int getMatriculaLote() {
         return matriculaLote;
     }
+    
+    public double getFosforo() {
+        return fosforo;
+    }
+    
+    public double getPotassio() {
+        return potassio;
+    }
+    
+    public double getCalcio() {
+        return calcio;
+    }
+    
+    public double getMagnesio() {
+        return magnesio;
+    }
+    
+    public double getEnxofre() {
+        return enxofre;
+    }
+    
+    public double getAluminio() {
+        return aluminio;
+    }
+    
+    public double getHAL() {
+        return HAL;
+    }
 
     // métodos sets
     
@@ -124,6 +175,34 @@ public class Solo {
     public void setMatriculaLote(int matriculaLote) {
         this.matriculaLote = matriculaLote;
     } 
+    
+    public void setFosforo(double fosforo) {
+        this.fosforo = fosforo;
+    }
+    
+    public void setPotassio(double potassio) {
+        this.potassio = potassio;
+    }
+    
+    public void setCalcio(double calcio) {
+        this.calcio = calcio;
+    }
+    
+    public void setMagnesio(double magnesio) {
+        this.magnesio = magnesio;
+    }
+    
+    public void setEnxofre(double enxofre) {
+        this.enxofre = enxofre;
+    }
+    
+    public void setAluminio(double aluminio) {
+        this.aluminio = aluminio;
+    }
+    
+    public void setHAL(double HAL) {
+        this.HAL = HAL;
+    }
     
     // métodos que calculam os teores ideais
     
@@ -191,5 +270,33 @@ public class Solo {
         return 0;
     }
     
+    public double getScmol(){
+        double soma;
+        soma = this.calcio + this.magnesio + this.potassio;
+        
+        if(soma > 0.01){
+            return soma;
+        }
+        else{
+            return -1;
+        }
+        
+    }
     
+    public double getCTCcmol(){
+        double soma;
+        soma = this.calcio + this.magnesio + this.potassio + this.HAL;
+        
+        if(soma > 0.01){
+            return soma;
+        }
+        
+        else{
+            return -1;
+        }
+    }
+    
+    public double getVatual(){
+        return 100*this.getScmol()/this.getCTCcmol();
+    }
 }
