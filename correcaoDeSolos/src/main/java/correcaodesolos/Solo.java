@@ -34,6 +34,11 @@ public class Solo {
         this.aluminio = aluminio;
         this.hidrogenioAluminio = hidrogenioAluminio;
     }
+    
+    public double getFosforo(){
+        return fosforo;
+    }
+    
     // métodos que calculam os teores ideais
     
     public double getTeorIdealFosforo(){
