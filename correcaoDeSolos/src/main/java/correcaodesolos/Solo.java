@@ -148,5 +148,21 @@ public class Solo {
             return 0.0;
         }
     }
+
+    double getPotassio() {
+        return this.potassio;
+    }
+
+    double getCalcio() {
+        return this.calcio;
+    }
+
+    double getMagnesio() {
+        return this.magnesio;
+    }
+
+    double getHidrogenioAluminio() {
+        return this.hidrogenioAluminio;
+    }
     
 }
