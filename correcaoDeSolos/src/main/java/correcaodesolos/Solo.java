@@ -1,5 +1,9 @@
 package correcaodesolos;
 
+/* Ajuste de manutenibilidade para os métodos relacionados a classe solo, onde foi-se utilizado conceitos aprendidos
+na aula de arquitetura de software com o Profº Gabriel Costa, cujo repositório consta no link: https://github.com/gabrielcostasilva/sa-soilcorrection
+*/
+
 import java.util.Date;
 
 /**
@@ -163,6 +167,10 @@ public class Solo {
 
     double getHidrogenioAluminio() {
         return this.hidrogenioAluminio;
+    }
+    
+    public void setFosforo(double fosforo){
+        this.fosforo = fosforo;
     }
     
 }
