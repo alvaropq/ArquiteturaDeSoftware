@@ -39,6 +39,16 @@ public class Solo {
         this.hidrogenioAluminio = hidrogenioAluminio;
     }
     
+    public Solo(double fosforo, double potassio, double calcio, double magnesio, double enxofre, double aluminio, double hidrogenioAluminio) {
+        this.fosforo = fosforo;
+        this.potassio = potassio;
+        this.calcio = calcio;
+        this.magnesio = magnesio;
+        this.enxofre = enxofre;
+        this.aluminio = aluminio;
+        this.hidrogenioAluminio = hidrogenioAluminio;
+    }
+    
     public double getFosforo(){
         return fosforo;
     }

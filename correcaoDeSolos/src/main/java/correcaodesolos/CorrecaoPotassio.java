@@ -1,5 +1,9 @@
 package correcaodesolos;
 
+/* Ajuste de manutenibilidade para os métodos relacionados a correção de potassio, onde foi-se utilizado conceitos aprendidos
+na aula de arquitetura de software com o Profº Gabriel Costa, cujo repositório consta no link: https://github.com/gabrielcostasilva/sa-soilcorrection
+*/
+
 /**
  *
  * @author Álvaro
@@ -39,68 +43,34 @@ public class CorrecaoPotassio {
     }  
 
     private double calcula() {
+        
         double calculo = (this.solo.getPotassio()*this.participacaoDesejada/this.participacaoPotassioCTCAtual()) - this.solo.getPotassio();
+        
         if(calculo < 0.01)
             return 0.0;
         else
            return calculo;
     }
-
-    private int fontePotassio() {
-        switch(this.fonte){
-            case CLORETO_DE_POTASSIO:
-                return 58;
-            case SULFATO_DE_POTASSIO:
-                return 52;
-            case SULFATO_POTASSIO_MAGNESIO:
-                return 22;
-            default:
-                return 0;
-        }
-    }
     
     double quantidadeAplicar() {
-        return this.calcula()*39.1*10*2*1.2*100/0.85/100*100/this.fontePotassio();
+        return this.calcula()*39.1*10*2*1.2*100/0.85/100*100/this.fonte.valorFontePotassio();
+        
     }
 
-    double forneceraTambem1() {
-        switch (this.fonte){
-            case SULFATO_DE_POTASSIO:
-                return this.quantidadeAplicar()*0.17;
-            case SULFATO_POTASSIO_MAGNESIO:
-                return this.quantidadeAplicar()*0.22;
-            default:
-                return 0.0;
-        }
+    double forneceraTambem() {
+        return this.quantidadeAplicar()*this.fonte.forneceraTambem();
     }
 
     String forneceraTambem2() {
-        switch (this.fonte){
-            case SULFATO_DE_POTASSIO:
-                return "ENXOFRE";
-            case SULFATO_POTASSIO_MAGNESIO:
-                return "ENXOFRE";
-            default:
-                return "";
-        }
+        return this.fonte.forneceraTambem2();
     }
 
     double forneceraTambem3() {
-        switch (this.fonte){
-            case SULFATO_POTASSIO_MAGNESIO:
-                return this.quantidadeAplicar()*0.18;
-            default:
-                return 0.0;
-        }
+        return this.quantidadeAplicar()*this.fonte.forneceraTambem3();
     }
 
     String forneceraTambem4() {
-        switch (this.fonte){
-            case SULFATO_POTASSIO_MAGNESIO:
-                return "MAGNÉSIO";
-            default:
-                return "";
-        }
+        return this.fonte.forneceraTambem4();
     }
 
     double custo() {
