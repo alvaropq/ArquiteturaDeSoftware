@@ -1,20 +1,9 @@
 package correcaodesolos;
 
-/* Ajuste de manutenibilidade para os métodos relacionados a correção de potassio, onde foi-se utilizado conceitos aprendidos
-na aula de arquitetura de software com o Profº Gabriel Costa, cujo repositório consta no link: https://github.com/gabrielcostasilva/sa-soilcorrection
-*/
-
-/**
- *
- * @author Álvaro
- */
-public class CorrecaoPotassio {
-    private Solo solo;
+public class CorrecaoPotassio extends Correcoes{
     private double participacaoDesejada;
     private FontePotassio fonte;
-    private double valor;
     
-    // métoodos construtores
     public CorrecaoPotassio() {
     }
 
@@ -33,39 +22,32 @@ public class CorrecaoPotassio {
         return 3;
     }
     
-    double participacaoPotassioCTCAposCorrecao() {
+    double participacaoPotassioCTCAposCorrecao() {   
         return (this.participacaoDesejada > 0.001) ? this.participacaoDesejada : 0.0;
     }  
 
-    private double calcula() {
-        
+    private double calcula() {       
         double calculo = (this.solo.getPotassio()*this.participacaoDesejada/this.participacaoPotassioCTCAtual()) - this.solo.getPotassio();
         return (calculo < 0.01) ? 0.0 : calculo;
     }
     
-    double quantidadeAplicar() {
-        return this.calcula()*110400/this.fonte.valorFontePotassio(); 
-        
+    public double quantidadeAplicar() {
+        return this.calcula()*110400/this.fonte.valorFontePotassio();     
     }
 
-    double forneceraTambem() {
+    public double forneceraTambem() {
         return this.quantidadeAplicar()*this.fonte.getValorForneceraTambem();
     }
 
-    String forneceraTambem2() {
+    public String forneceraTambem2() {
         return this.fonte.getValorForneceraTambem2();
     }
 
-    double forneceraTambem3() {
+    public double forneceraTambem3() {
         return this.quantidadeAplicar()*this.fonte.getValorForneceraTambem3();
     }
 
-    String forneceraTambem4() {
+    public String forneceraTambem4() {
         return this.fonte.getValorForneceraTambem4();
     }
-
-    double custo() {
-        return this.valor*this.quantidadeAplicar()/1000;
-    }
-    
 }

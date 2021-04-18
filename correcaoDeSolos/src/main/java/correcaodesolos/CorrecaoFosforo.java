@@ -1,22 +1,11 @@
 package correcaodesolos;
 
-/* Ajuste de manutenibilidade para os métodos relacionados a correção de fosforo, onde foi-se utilizado conceitos aprendidos
-na aula de arquitetura de software com o Profº Gabriel Costa, cujo repositório consta no link: https://github.com/gabrielcostasilva/sa-soilcorrection
-*/
-
-/**
- *
- * @author Álvaro
- */
-public class CorrecaoFosforo {
+public class CorrecaoFosforo extends Correcoes {
     
-    private double teorFosforoAtingir; // atributo referente ao teor de fósforo a atingir (mg.dm³)
-    private FonteFosforo fonteFosforo; // atributo referente a fonte de fósforo a utilizar
-    private double eficienciaFosforo; // atributo referente a eficiência do fósforo %
-    private Solo solo;
-    private double valor;
+    private double teorFosforoAtingir; 
+    private FonteFosforo fonteFosforo;
+    private double eficienciaFosforo;
     
-    // métoodos construtores
     public CorrecaoFosforo() {
     }
     
@@ -32,27 +21,23 @@ public class CorrecaoFosforo {
         this.valor = valor;
     }
     
-    double quantidadeAplicar() {
+    public double quantidadeAplicar() {
         return ((this.teorFosforoAtingir - this.solo.getFosforo()) > 0.01 ) ? ((this.teorFosforoAtingir - this.solo.getFosforo())*4.58/this.eficienciaFosforo)*(100/this.fonteFosforo.valorFonteFosforo()) :  0.0;
     }
 
-    double forneceraTambem() {
+    public double forneceraTambem() {
         return this.quantidadeAplicar()*this.fonteFosforo.getValorForneceraTambem();
     }
 
-    String forneceraTambem2() {
+    public String forneceraTambem2() {
         return this.fonteFosforo.getValorForneceraTambem2();
     } 
 
-    double forneceraTambem3() {
+    public double forneceraTambem3() {
         return this.quantidadeAplicar()*this.fonteFosforo.getValorForneceraTambem3();
     }
     
-    String forneceraTambem4() {
+    public String forneceraTambem4() {
         return this.fonteFosforo.getValorForneceraTambem4();
-    }
-
-    double custo() {
-        return this.valor * this.quantidadeAplicar()/1000;
     }
 }
