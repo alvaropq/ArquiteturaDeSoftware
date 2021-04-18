@@ -66,31 +66,16 @@ public class Solo {
     public double getTeorIdealAluminio(){
         return 0;
     }
-    
     public double getScmol(){
         double soma;
-        soma = this.calcio + this.magnesio + this.potassio;
-        
-        if(soma > 0.01){
-            return soma;
-        }
-        else{
-            return -1;
-        }
-        
+        soma = this.calcio + this.magnesio + this.potassio;     
+        return (soma > 0.01) ? soma : -1;
     }
     
     public double getCTCcmol(){
         double soma;
-        soma = this.calcio + this.magnesio + this.potassio + this.hidrogenioAluminio;
-        
-        if(soma > 0.01){
-            return soma;
-        }
-        
-        else{
-            return -1;
-        }
+        soma = this.calcio + this.magnesio + this.potassio + this.hidrogenioAluminio;       
+        return (soma > 0.01) ? soma : -1;
     }
     
     public double getVatual(){
@@ -98,23 +83,13 @@ public class Solo {
     }
     
     double getMOPercentual(double mo) {
-        if (mo > 0) {
-            return mo / 10;
-            
-        } else {
-            return 0.0;
-        }
+        return (mo > 0) ? mo/10 : 0.0;
     }
 
     double getCarbono(double moPercentual) {
-        
-        if (moPercentual > 0) {
-            return moPercentual / 1.72 * 10;
-            
-        } else {
-            return 0.0;
-        }
+        return (moPercentual > 0) ? moPercentual / 1.72 * 10 : 0.0;
     }
+
     double getPotassio() {
         return this.potassio;
     }

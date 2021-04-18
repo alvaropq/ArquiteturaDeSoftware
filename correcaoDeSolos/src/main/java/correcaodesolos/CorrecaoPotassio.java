@@ -34,26 +34,17 @@ public class CorrecaoPotassio {
     }
     
     double participacaoPotassioCTCAposCorrecao() {
-        if(this.participacaoDesejada > 0.001){
-            return this.participacaoDesejada;
-        }
-        else{
-            return 0.0;
-        }
+        return (this.participacaoDesejada > 0.001) ? this.participacaoDesejada : 0.0;
     }  
 
     private double calcula() {
         
         double calculo = (this.solo.getPotassio()*this.participacaoDesejada/this.participacaoPotassioCTCAtual()) - this.solo.getPotassio();
-        
-        if(calculo < 0.01)
-            return 0.0;
-        else
-           return calculo;
+        return (calculo < 0.01) ? 0.0 : calculo;
     }
     
     double quantidadeAplicar() {
-        return this.calcula()*39.1*10*2*1.2*100/0.85/100*100/this.fonte.valorFontePotassio();
+        return this.calcula()*110400/this.fonte.valorFontePotassio(); 
         
     }
 

@@ -33,12 +33,7 @@ public class CorrecaoFosforo {
     }
     
     double quantidadeAplicar() {
-        if((this.teorFosforoAtingir - this.solo.getFosforo()) > 0.01 ){
-            return ((this.teorFosforoAtingir - this.solo.getFosforo())*2*2.29*100/this.eficienciaFosforo/100)*(100/this.fonteFosforo.valorFonteFosforo());
-        }
-        else{
-            return 0.0;
-        }
+        return ((this.teorFosforoAtingir - this.solo.getFosforo()) > 0.01 ) ? ((this.teorFosforoAtingir - this.solo.getFosforo())*4.58/this.eficienciaFosforo)*(100/this.fonteFosforo.valorFonteFosforo()) :  0.0;
     }
 
     double forneceraTambem() {
