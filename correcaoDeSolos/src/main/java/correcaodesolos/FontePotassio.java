@@ -1,95 +1,38 @@
 package correcaodesolos;
 
-/**
- *
- * @author Álvaro
- */
 public enum FontePotassio {
     
-    CLORETO_DE_POTASSIO{
-        @Override
-        public  double valorFontePotassio(){
-            return 58;
-        }
-        
-        @Override
-        public double forneceraTambem(){
-            return 0.0;
-        }
-        
-        @Override
-        public String forneceraTambem2(){
-            return "";
-        }
-        
-        @Override
-        public double forneceraTambem3(){
-            return 0.0;
-        }
-        
-        @Override
-        public String forneceraTambem4(){
-            return "";
-        }
-    },
-    SULFATO_DE_POTASSIO{
-        @Override
-        public  double valorFontePotassio(){
-            return 52;
-        }
-        
-        @Override
-        public double forneceraTambem(){
-            return 0.17;
-        }
-        
-        @Override
-        public String forneceraTambem2(){
-            return "ENXOFRE";
-        }
-        
-        @Override
-        public double forneceraTambem3(){
-            return 0.0;
-        }
-        
-        @Override
-        public String forneceraTambem4(){
-            return "";
-        }
-    },
+    CLORETO_DE_POTASSIO(58,0.0,"",0.0,""),
+    SULFATO_DE_POTASSIO(52,0.17,"ENXOFRE",0.0,""),
+    SULFATO_POTASSIO_MAGNESIO(22,0.22,"ENXOFRE",0.18,"MAGNÉSIO");
     
-    SULFATO_POTASSIO_MAGNESIO{
-        
-        @Override
-        public double valorFontePotassio(){
-            return 22;
-        }
-        
-        @Override
-        public double forneceraTambem(){
-            return 0.22;
-        }
-        
-        @Override
-        public String forneceraTambem2(){
-            return "ENXOFRE";
-        }
-        
-        @Override
-        public double forneceraTambem3(){
-            return 0.18;
-        }
-        
-        @Override
-        public String forneceraTambem4(){
-            return "MAGNÉSIO";
-        }
-    };
+    private final double valorFontePotassio;
+    private final double valorForneceraTambem;
+    private final String valorForneceraTambem2;
+    private final double valorForneceraTambem3;
+    private final String valorForneceraTambem4;
     
-    public abstract double valorFontePotassio();
-    public abstract double forneceraTambem();
-    public abstract String forneceraTambem2();
-    public abstract double forneceraTambem3();
-    public abstract String forneceraTambem4();
+    FontePotassio(double valorFontePotassio, double forneceraTambem, String forneceraTambem2, double forneceraTambem3, String forneceraTambem4){
+        this.valorFontePotassio = valorFontePotassio;
+        this.valorForneceraTambem = forneceraTambem;
+        this.valorForneceraTambem2 = forneceraTambem2;
+        this.valorForneceraTambem3 = forneceraTambem3;
+        this.valorForneceraTambem4 = forneceraTambem4;
+    }
+    
+    public double valorFontePotassio(){
+        return this.valorFontePotassio;
+    }
+    public double getValorForneceraTambem(){
+        return this.valorForneceraTambem;
+    }
+    public String getValorForneceraTambem2(){
+        return this.valorForneceraTambem2;
+    }
+    public double getValorForneceraTambem3(){
+        return this.valorForneceraTambem3;
+    }
+    public String getValorForneceraTambem4(){
+        return this.valorForneceraTambem4;
+    }
 }

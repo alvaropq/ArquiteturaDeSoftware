@@ -42,19 +42,19 @@ public class CorrecaoFosforo {
     }
 
     double forneceraTambem() {
-        return this.quantidadeAplicar()*this.fonteFosforo.forneceraTambem();
+        return this.quantidadeAplicar()*this.fonteFosforo.getValorForneceraTambem();
     }
 
     String forneceraTambem2() {
-        return this.fonteFosforo.forneceraTambem2();
+        return this.fonteFosforo.getValorForneceraTambem2();
     } 
 
     double forneceraTambem3() {
-        return this.quantidadeAplicar()*this.fonteFosforo.forneceraTambem3();
+        return this.quantidadeAplicar()*this.fonteFosforo.getValorForneceraTambem3();
     }
     
     String forneceraTambem4() {
-        return this.fonteFosforo.forneceraTambem4();
+        return this.fonteFosforo.getValorForneceraTambem4();
     }
 
     double custo() {

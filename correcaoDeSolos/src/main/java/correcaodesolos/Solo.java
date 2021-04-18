@@ -4,32 +4,22 @@ package correcaodesolos;
 na aula de arquitetura de software com o Profº Gabriel Costa, cujo repositório consta no link: https://github.com/gabrielcostasilva/sa-soilcorrection
 */
 
-import java.util.Date;
-
-/**
- *
- * @author Álvaro
- */
 public class Solo {
     
-    private TexturaSolo textura; // atributo referente a textura. 1 = Argiloso e 2 = Textura Média 
-    private double fosforo; //valor de análise de fósforo no solo
-    private double potassio; //valor de análise de potássio no solo
-    private double calcio; //valor de análise de cálcio no solo
-    private double magnesio; //valor de análise de magnésio no solo
-    private double enxofre; //valor de análise de enxofre no solo
-    private double aluminio; //valor de análise de alumínio no solo
+    private TexturaSolo textura;
+    private double fosforo; 
+    private double potassio; 
+    private double calcio; 
+    private double magnesio; 
+    private double enxofre; 
+    private double aluminio;
     private double hidrogenioAluminio;
     
-    
-    // métoodos construtores
     public Solo() {
     }
 
-    public Solo(TexturaSolo textura, double fosforo, double potassio, double calcio, double magnesio, double enxofre, double aluminio, double hidrogenioAluminio) {
-       
+    public Solo(TexturaSolo textura, double fosforo, double potassio, double calcio, double magnesio, double enxofre, double aluminio, double hidrogenioAluminio) {   
         this.textura = textura;
-
         this.fosforo = fosforo;
         this.potassio = potassio;
         this.calcio = calcio;
@@ -52,62 +42,25 @@ public class Solo {
     public double getFosforo(){
         return fosforo;
     }
-    
-    // métodos que calculam os teores ideais
-    
+
     public double getTeorIdealFosforo(){
-        switch(this.textura){
-            case ARGILOSO:
-                return 9.0;
-            case TEXTURA_MEDIA:
-                return 12.0;
-            default:
-                return 0.0;
-        }
+        return this.textura.getValorIdealFosforo();
     }
     
     public double getTeorIdealPotassio(){
-        switch(this.textura){
-            case ARGILOSO:
-                return 0.35;
-            case TEXTURA_MEDIA:
-                return 0.25;
-            default:
-                return 0.0;
-        }
+        return this.textura.getValorIdealPotassio();
     }
     
     public double getTeorIdealCalcio(){
-        switch(this.textura){
-            case ARGILOSO:
-                return 6.0;
-            case TEXTURA_MEDIA:
-                return 4.0;
-            default:
-                return 0.0;
-        }
+        return this.textura.getValorIdealCalcio();
     }
     
     public double getTeorIdealMagnesio(){
-        switch(this.textura){
-            case ARGILOSO:
-                return 1.5;
-            case TEXTURA_MEDIA:
-                return 1;
-            default:
-                return 0.0;
-        }
+        return this.textura.getValorIdealMagnesio();
     }
     
     public double getTeorIdealEnxofre(){
-        switch(this.textura){
-            case ARGILOSO:
-                return 9.0;
-            case TEXTURA_MEDIA:
-                return 6.0;
-            default:
-                return 0.0;
-        }
+        return this.textura.getValorIdealEnxofre();
     }
     
     public double getTeorIdealAluminio(){
@@ -162,7 +115,6 @@ public class Solo {
             return 0.0;
         }
     }
-
     double getPotassio() {
         return this.potassio;
     }
@@ -181,6 +133,5 @@ public class Solo {
     
     public void setFosforo(double fosforo){
         this.fosforo = fosforo;
-    }
-    
+    }  
 }

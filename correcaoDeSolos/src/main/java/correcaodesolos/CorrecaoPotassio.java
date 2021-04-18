@@ -58,19 +58,19 @@ public class CorrecaoPotassio {
     }
 
     double forneceraTambem() {
-        return this.quantidadeAplicar()*this.fonte.forneceraTambem();
+        return this.quantidadeAplicar()*this.fonte.getValorForneceraTambem();
     }
 
     String forneceraTambem2() {
-        return this.fonte.forneceraTambem2();
+        return this.fonte.getValorForneceraTambem2();
     }
 
     double forneceraTambem3() {
-        return this.quantidadeAplicar()*this.fonte.forneceraTambem3();
+        return this.quantidadeAplicar()*this.fonte.getValorForneceraTambem3();
     }
 
     String forneceraTambem4() {
-        return this.fonte.forneceraTambem4();
+        return this.fonte.getValorForneceraTambem4();
     }
 
     double custo() {
