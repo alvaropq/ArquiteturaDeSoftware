@@ -1,4 +1,3 @@
-
 package correcaodesolos;
 
 public enum TexturaSolo {

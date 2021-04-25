@@ -108,5 +108,5 @@ public class Solo {
     
     public void setFosforo(double fosforo){
         this.fosforo = fosforo;
-    }  
+    } 
 }

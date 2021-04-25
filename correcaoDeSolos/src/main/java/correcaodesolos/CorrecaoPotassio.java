@@ -2,12 +2,11 @@ package correcaodesolos;
 
 public class CorrecaoPotassio extends Correcoes{
     private double participacaoDesejada;
-    private FontePotassio fonte;
     
     public CorrecaoPotassio() {
     }
 
-    public CorrecaoPotassio(Solo solo,double participacaoDesejada, FontePotassio fonte, double valor){
+    public CorrecaoPotassio(Solo solo,double participacaoDesejada, Fontes fonte, double valor){
         this.solo = solo;
         this.participacaoDesejada = participacaoDesejada;
         this.fonte = fonte;
@@ -15,39 +14,24 @@ public class CorrecaoPotassio extends Correcoes{
     }
 
     double participacaoPotassioCTCAtual() {
-        return this.solo.getPotassio()/(this.solo.getCalcio()+this.solo.getMagnesio()+this.solo.getPotassio()+this.solo.getHidrogenioAluminio())*100;
+        return this.solo.getPotassio()/(this.solo.getCalcio()+this.solo.getMagnesio()+this.solo.getPotassio()+this.solo.getHidrogenioAluminio());
     }
 
     double participacaoPotassioCTCIdeal() {
-        return 3;
+        return 0.03;
     }
     
     double participacaoPotassioCTCAposCorrecao() {   
         return (this.participacaoDesejada > 0.001) ? this.participacaoDesejada : 0.0;
     }  
 
-    private double calcula() {       
+    private double calcula() {
         double calculo = (this.solo.getPotassio()*this.participacaoDesejada/this.participacaoPotassioCTCAtual()) - this.solo.getPotassio();
         return (calculo < 0.01) ? 0.0 : calculo;
     }
     
     public double quantidadeAplicar() {
-        return this.calcula()*110400/this.fonte.valorFontePotassio();     
+        return this.calcula()*110400/this.fonte.valorFonte();     
     }
-
-    public double forneceraTambem() {
-        return this.quantidadeAplicar()*this.fonte.getValorForneceraTambem();
-    }
-
-    public String forneceraTambem2() {
-        return this.fonte.getValorForneceraTambem2();
-    }
-
-    public double forneceraTambem3() {
-        return this.quantidadeAplicar()*this.fonte.getValorForneceraTambem3();
-    }
-
-    public String forneceraTambem4() {
-        return this.fonte.getValorForneceraTambem4();
-    }
+  
 }
