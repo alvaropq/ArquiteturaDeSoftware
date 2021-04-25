@@ -9,16 +9,13 @@ https://docs.google.com/document/d/1eFRnTIYEbemXXZAKOSA0JoskfUFjBbQsW7FRi7QUEX8/
 ## Código antes das mudanças
 
 ### Resultado do cloc
-      18 text files.
-      18 unique files.
-      25 files ignored.
+       7 text files.
+       7 unique files.
+       1 file ignored.
 
 Language    | files | blank | comment | code
 ------------|-------|-------|---------|------
-Java        | 10    |206    | 61      | 955
-XML         | 4     |0      | 0       | 263
-Maven       | 1     |1      | 0       | 52
-**SUM**     | **15**    |**207**    | **61**      | **1270**
+**Java**        | **7**    | **176**    | **49**      | **659**
 
 Estruturas condicionais: 12 condicionais
 
@@ -34,7 +31,8 @@ Estruturas condicionais: 12 condicionais
 - Melhor utilização de Enums, presente no link: https://www.javaprogressivo.net/2012/10/Como-usar-enumA-melhor-maneira-para-manusear-constantes-em-Java.html;
 - Utilização de operador ternário, presente no link: https://www.devmedia.com.br/java-if-else-e-o-operador-ternario/38185;
 - Simplificação das fórmulas;
-- Utilização de padrão denominado de Template Method, presente no link: https://refactoring.guru/pt-br/design-patterns/template-method
+- Utilização de herança;
+- Junção de Enums em um único;
 
 ## Implementação de soluções
 - Alterações estrutura Enum e exclusão de classe não utilizada:
@@ -43,22 +41,21 @@ Estruturas condicionais: 12 condicionais
 - Utilização de operador ternário e diminuição de complexidade das fórmulas:
   * O operador ternário permite a diminuição de linhas de código para funções que dependiam de condições simples de if/else;
   * A simplificação das fórmulas permite deixar o código mais limpo, diminuindo a complexidade que havia na planilha para o código;
-- Aplicação do padrão Template Method
-  * Tal padrão foi adotado nas classes de correção, onde contém algoritmos quase idênticos com algumas diferenças menores, assim podemos estender apenas etapas particulares de um algoritmo, mas não todo o algoritmo e sua estrutura;
+- Aplicação de herança:
+  * A utilização de herança foi adotada nas classes de correção, onde contém algoritmos quase idênticos com algumas diferenças menores, assim podemos estender apenas etapas particulares de um algoritmo, mas não todo o algoritmo e sua estrutura;
   * Outro ganho é a eliminação de duplicação de código, onde os códigos que estão presentes para ambas as classes, estão localizadas na classe pai, e podem ser herdadas.
+- Junção de Enums de fonte em um único Enum:
+  * Como os Enums de fontes possuíam os mesmos atributos e métodos, esses foram incorporados em um mesmo Enum, evitando replicação de código, além de possibilitar a utilização do método que utiliza essas informações na classe de correções pai e consequentemente as classes filhas herdarem;
 
 ## Código após mudanças
 ### Resultado do cloc
-      18 text files.
-      18 unique files.
-      25 files ignored.
+       6 text files.
+       6 unique files.
+       1 file ignored.
 
 Language    | files | blank | comment | code
 ------------|-------|-------|---------|------
-Java        | 10    |92     | 15      | 577
-XML         | 4     |0      | 0       | 263
-Maven       | 1     |1      | 0       | 52
-**SUM**     | **15**    |**93**    | **15**      | **893**
+**Java**        | **6**    | **52**     | **3**      | **228**
 
 Estruturas condicionais: 0 (if/else - switch);
-Diminuição de 378 linhas de código, diminuição de pontos de alteração;
+Diminuição de 431 linhas de código, diminuição de pontos de alteração;
